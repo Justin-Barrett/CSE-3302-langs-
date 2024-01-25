@@ -39,12 +39,10 @@ long dirSize(DIR *dp, FILE *fp)
     //make sure the input is a directory (and also not an error)
     if(dp != NULL)
     {
-        printf("dp");
         while (ep = readdir (dp))
         {
             if(strcmp(ep->d_name, ".") != 0 && strcmp(ep->d_name, "..") != 0)
             {
-                printf("%s",ep->d_name);
                 sum += dirSize(opendir(ep->d_name), fopen(ep->d_name,"r"));
             }
         }
@@ -53,7 +51,6 @@ long dirSize(DIR *dp, FILE *fp)
     //if its not a directory, check and see if its a file
     else if(fp != NULL)
     {
-        printf("fp");
         fseek(fp, 0L, SEEK_END);
         sum += ftell(fp);
         fclose(fp);
