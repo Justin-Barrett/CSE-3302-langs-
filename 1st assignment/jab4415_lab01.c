@@ -13,23 +13,21 @@ int main()
 
     //init directory
     DIR *dp = opendir (".");
+    FILE *fp = fopen(".","r");
     
-    if (dp) printf("%ld",dirSize(dp,NULL));
+    if (dp) printf("%ld",dirSize(dp,fp));
     
     return 0;
 }
 
 /*
-function takes an input directory and a file pointer
+function takes an input directory and a file pointer and returns directory size in bytes
 
-takes in a directory and a null file pointer when the function recurses, it checks to see
-which one is null
-
+the function then checks which one was NULL (distinguishes a file from a directory)
 if the directory is null it checks if its a file
 and if so, it will add its size to the final sum
 
-if fp is null, it will scan through all the directories
-recursively the function is complete
+if fp is null, it will recurse until there are no more files or directories to read
 */
 long dirSize(DIR *dp, FILE *fp)
 {
