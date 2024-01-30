@@ -32,7 +32,7 @@ if fp is null, it will recurse until there are no more files or directories to r
 long dirSize(DIR *dp, FILE *fp)
 {
     long sum = 0;
-    struct dirent *ep;
+    struct dirent *ep = NULL;
     
     //make sure the input is a directory (and also not an error)
     if(dp != NULL)

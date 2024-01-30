@@ -4,11 +4,19 @@ import os
 
 def main():
     print("Hello World!")
-    print(dirSize())
+    print(dirSize("."))
 
-def dirSize():
+def dirSize(folder):
     #*(frick) python
-    b = os.path.getsize("..")
+    total_size = os.path.getsize(folder) - 4096
+    for item in os.listdir(folder):
+        itempath = os.path.join(folder, item)
+        if os.path.isfile(itempath):
+            total_size += os.path.getsize(itempath)
+        elif os.path.isdir(itempath):
+            total_size += dirSize(itempath)
+    return total_size
+
     return b
 
 if __name__ == "__main__":
