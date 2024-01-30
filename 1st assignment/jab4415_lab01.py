@@ -17,7 +17,5 @@ def dirSize(folder):
             total_size += dirSize(itempath)
     return total_size
 
-    return b
-
 if __name__ == "__main__":
     main()
