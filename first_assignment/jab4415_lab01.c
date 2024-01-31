@@ -49,7 +49,6 @@ long dirSize(DIR *dp, FILE *fp, char currPath[512])
                 //reusing fp :D
                 fp = fopen(name,"r");
                 strcat(name,"/");
-                printf("\n%s", name);
 
                 sum += dirSize(opendir(name), fp, name);
             }
@@ -59,7 +58,6 @@ long dirSize(DIR *dp, FILE *fp, char currPath[512])
     //if its not a directory, check and see if its a file
     else if(fp != NULL)
     {
-        printf("\t\t (adding)");
         fseek(fp, 0L, SEEK_END);
         sum += ftell(fp);
         fclose(fp);

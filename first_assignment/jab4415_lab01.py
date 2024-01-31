@@ -3,7 +3,6 @@ import os
 
 
 def main():
-    print("Hello World!")
     print(dirSize("."))
 
 # takes in a file/directory path
