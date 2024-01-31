@@ -29,7 +29,7 @@ public class jab4415_lab01
             //scans the directory
             for(int x=0; x<inFile.list().length; x++)
             {
-                size += dirSize(new File(inFile.getName() + "/" + inFile.list()[x]));
+                size += dirSize(new File(inFile.getPath() + "/" + inFile.list()[x]));
             }
         }
         else if(inFile.isFile())

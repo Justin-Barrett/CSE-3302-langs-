@@ -6,15 +6,17 @@ def main():
     print("Hello World!")
     print(dirSize("."))
 
+# takes in a file/directory path
 def dirSize(folder):
     #*(frick) python
     total_size = os.path.getsize(folder) - 4096
-    for item in os.listdir(folder):
-        itempath = os.path.join(folder, item)
-        if os.path.isfile(itempath):
-            total_size += os.path.getsize(itempath)
-        elif os.path.isdir(itempath):
-            total_size += dirSize(itempath)
+    for entries in os.listdir(folder):
+        #thisEntry = the specific entry in the list
+        thisEntry = os.path.join(folder, entries)
+        if os.path.isfile(thisEntry):
+            total_size += os.path.getsize(thisEntry)
+        elif os.path.isdir(thisEntry):
+            total_size += dirSize(thisEntry)
     return total_size
 
 if __name__ == "__main__":
