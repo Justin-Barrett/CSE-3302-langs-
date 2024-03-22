@@ -19,6 +19,7 @@ def readTokens(recv):
             elif recv[index] == "-": storedValues[len(storedValues)-1] -= tempvalue
             elif recv[index] == "*": storedValues[len(storedValues)-1] *= tempvalue
             elif recv[index] == "/": storedValues[len(storedValues)-1] /= tempvalue
+            elif recv[index] == "%": storedValues[len(storedValues)-1] %= tempvalue
     return storedValues
 
 f = open("input_RPN.txt" , 'r')
