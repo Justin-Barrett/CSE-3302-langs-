@@ -59,7 +59,7 @@ def readTokens(recv):
     return output
 
 
-f = open("/workspaces/CSE-3302-langs-/4th/input_RPN.txt" , 'r')
+f = open("input.txt" , 'r')
 tokens = f.read()
 print(readTokens(tokens))
 
